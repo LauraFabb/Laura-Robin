@@ -1,4 +1,4 @@
-# Cahier des charges – [Nom du projet]
+# Cahier des charges – FYNJ- FindYourNumericJob
 
 Projet réalisé dans le cadre de nos études à la [HEIG-VD](https://heig-vd.ch)
 (cours ProgServ2, 2026-2027).
