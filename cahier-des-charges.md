@@ -38,7 +38,7 @@ réaliser pour s'en rapprocher et conseils pour postuler.
 - **Pages publiques** : accueil (avec explication du fonctionnement), connexion
   et inscription.
 - **Pages privées** : quiz, catalogue filtré, fiche métier, favoris et plan
-  d'action, profil, administration.
+  d'action, profil.
 - **Comptes** : inscription, connexion, déconnexion, session maintenue,
   modification du profil, mots de passe hachés, protection contre injections
   SQL.
