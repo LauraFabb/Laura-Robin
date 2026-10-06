@@ -35,7 +35,7 @@ réaliser pour s'en rapprocher et conseils pour postuler.
 
 ## 4. Fonctionnalités principales
 
-- **Pages publiques** : accueil (avec explication du fonctionnement), connexion
+- **Pages publiques** : accueil (avec explication du fonctionnement), connexion, à propos
   et inscription.
 - **Pages privées** : quiz, catalogue filtré, fiche métier, favoris et plan
   d'action, profil, administration.
