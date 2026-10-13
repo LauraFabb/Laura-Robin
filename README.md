@@ -219,3 +219,5 @@ fonctionnalités que nous prévoyons de développer.
 > Cette maquette est une version initiale. Elle est susceptible d'évoluer au fil
 > du développement, en fonction des choix techniques, des contraintes
 > rencontrées et des retours reçus.
+http://localhost:8080/src/public/index.php 
+http://localhost:9090/index.php?route=/database/designer&db=my_database 
