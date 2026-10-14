@@ -52,15 +52,6 @@ CREATE TABLE metiers (
     FOREIGN KEY (id_categorie) REFERENCES categories (id) ON DELETE CASCADE
 );
 
-CREATE TABLE projets (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    id_categorie INT NOT NULL,
-    titre VARCHAR(150) NOT NULL,
-    description TEXT,
-    duree_semaines INT,
-    FOREIGN KEY (id_categorie) REFERENCES categories (id) ON DELETE CASCADE
-);
-
 CREATE TABLE conseils (
     id INT AUTO_INCREMENT PRIMARY KEY,
     id_categorie INT NOT NULL,
@@ -109,15 +100,6 @@ CREATE TABLE favoris (
     FOREIGN KEY (id_categorie) REFERENCES categories (id) ON DELETE CASCADE
 );
 
-CREATE TABLE projets_realises (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    id_utilisateur INT NOT NULL,
-    id_projet INT NOT NULL,
-    date_realisation DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    UNIQUE (id_utilisateur, id_projet),
-    FOREIGN KEY (id_utilisateur) REFERENCES utilisateurs (id) ON DELETE CASCADE,
-    FOREIGN KEY (id_projet) REFERENCES projets (id) ON DELETE CASCADE
-);
 
 CREATE TABLE reinitialisations_mdp (
     id INT AUTO_INCREMENT PRIMARY KEY,
