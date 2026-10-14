@@ -58,6 +58,7 @@ CREATE TABLE conseils (
     ordre INT NOT NULL,
     titre VARCHAR(150) NOT NULL,
     texte TEXT NOT NULL,
+    projet_suggere TEXT,
     FOREIGN KEY (id_categorie) REFERENCES categories (id) ON DELETE CASCADE
 );
 
@@ -99,7 +100,6 @@ CREATE TABLE favoris (
     FOREIGN KEY (id_utilisateur) REFERENCES utilisateurs (id) ON DELETE CASCADE,
     FOREIGN KEY (id_categorie) REFERENCES categories (id) ON DELETE CASCADE
 );
-
 
 CREATE TABLE reinitialisations_mdp (
     id INT AUTO_INCREMENT PRIMARY KEY,

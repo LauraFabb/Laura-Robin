@@ -43,7 +43,7 @@ foreach ($tables as $table) {
 
     <p>La connexion à la base de données fonctionne ✅</p>
 
-    <h2>Tables de la base « <?= htmlspecialchars(DB_NAME) ?> » : <?= count($tables) ?> (14 attendues)</h2>
+    <h2>Tables de la base « <?= htmlspecialchars(DB_NAME) ?> » : <?= count($tables) ?> (12 attendues)</h2>
 
     <ul>
         <?php foreach ($tables as $table) { ?>
