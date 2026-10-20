@@ -1,0 +1,16 @@
+id,id_categorie,ordre,titre,texte,projet_suggere
+1,1,1,Montre ton code,Publie tes projets sur GitHub avec un README clair : les recruteur·ses regardent le code autant que le CV.,"Mettre en ligne un portfolio personnel codé à la main, avec ses projets et un lien GitHub"
+2,1,2,Maîtrise un framework,"Choisis un framework demandé dans les annonces (React, Vue, Laravel) et réalise un projet complet avec.",Développer une petite application web avec base de données et connexion utilisateur
+3,1,3,Apprends à travailler en équipe,"Git, les pull requests et la revue de code sont utilisés partout en entreprise.",
+4,2,1,Construis un portfolio de cas,"Présente 2 ou 3 projets en expliquant ta démarche : problème, recherche, solutions testées, résultat.",Refaire l'interface d'une application existante et documenter la démarche UX
+5,2,2,Teste avec de vrais utilisateurs,Les employeurs veulent voir que tu sais mener des tests utilisateurs et en tirer des améliorations.,Organiser un test utilisateur avec 5 personnes sur un prototype Figma
+6,2,3,Rejoins la communauté,Participe aux événements de UX Schweiz ou à des conférences UX pour rencontrer des professionnel·les.,
+7,3,1,Commence par un poste de designer,On devient rarement Product Design Manager directement : vise d'abord un poste de UX ou Product Designer.,
+8,3,2,Développe ta vision business,"Apprends à relier tes choix de design aux objectifs de l'entreprise (indicateurs, ventes, satisfaction).","Concevoir un produit fictif avec ses personas, sa feuille de route et ses indicateurs de succès"
+9,3,3,Entraîne ton leadership,Anime des ateliers et présente tes projets à l'oral : savoir convaincre est central dans ce métier.,
+10,4,1,Connais les plateformes,"Familiarise-toi avec Shopify, WooCommerce ou Magento, très utilisés par les entreprises suisses.",Créer une boutique en ligne de test avec Shopify ou WooCommerce
+11,4,2,Apprends à lire les chiffres,"Google Analytics, le taux de conversion et le panier moyen sont au cœur du métier.",Analyser les statistiques d'un site et proposer trois améliorations chiffrées
+12,4,3,Vise les pure players,Les entreprises 100 % en ligne recrutent souvent des profils polyvalents sortant du Bachelor.,
+13,5,1,Montre que tu sais organiser,"Mets en avant les projets que tu as coordonnés : planning, répartition des tâches, livraison dans les délais.",Gérer un projet d'équipe avec un tableau Kanban (GitHub Projects ou Trello) et un planning
+14,5,2,Apprends les méthodes agiles,Scrum et Kanban sont demandés dans la plupart des annonces de chef·fe de projet digital.,
+15,5,3,Pense aux certifications,Une certification comme PRINCE2 ou Scrum Master peut augmenter ton salaire et ta crédibilité.,
