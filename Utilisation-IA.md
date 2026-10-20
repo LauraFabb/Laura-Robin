@@ -17,22 +17,32 @@ Projet réalisé dans le cadre de nos études à la [HEIG-VD](https://heig-vd.ch
 - **MPD** : script SQL (MySQL / MariaDB) pour créer la base dans phpMyAdmin et vérifier que rien n'avait été oublié.
 - **Explications** : Nous avons aussi beaucoup dialogué avec l'IA pour être sur que ce qu'on avait prévu étaiit réalisable et comprendre comment tout allait intéragir entre nos différentes tables. Elle nous a aussi permis de créer le fonctionnement de notre quiz pour trouver comment avoir des résultats efficaces par rapport aux réponses qu'allait donner l'utilisateur. 
 
-## 3. Ce que nous avons décidé nous-mêmes
 
-- Le **sujet** du site, son but et son public (étudiant·es en Ingénierie des médias).
-- Le **parcours utilisateur** et la liste des fonctionnalités de départ.
-- Les **5 critères du quiz** : salaire visé, niveau de spécialisation, créativité, résistance à l'IA, envie de faire un Master.
-- Les **résultats du quiz conservés**, avec une option pour refaire le test.
-- Le contenu à saisir dans la base (métiers, Masters, projets, conseils) : [À compléter : qui s'en occupe et d'où viennent les informations].
-
-## 4. Limites et corrections
+## 3. Limites et corrections
 
 - L'IA peut se tromper ou proposer des valeurs par défaut qui ne correspondent pas à notre projet (par exemple le nombre de questions du quiz ou le temps de chargement visé). Nous les relisons et les ajustons pour ne pas laisser du code ou des données générales mais uniquement ce qui est nécessaire pour notre projet.
 
-## 5 Nos règles
+## 4. Nos règles
 
 - Nous ne copions pas du texte ou du code généré sans le comprendre.
 - Nous relisons et testons ce que l'IA produit avant de l'ajouter au projet.
 - Nous indiquons dans ce fichier tout nouvel usage important de l'IA.
 
 
+## 5. Déploiement sur Infomaniak (Laura)
+
+**Quand :** mardi 20 octobre 2026, lors de la mise en ligne de l'application
+(issue/branche `18-lancer-sur-infomaniak`).
+
+**Outil :** Claude.
+
+**Pourquoi :** je n'avais jamais déployé une application PHP avec une base de
+données sur un hébergement réel. J'avais déjà un nom de domaine (fynj.ch) et un
+hébergement Infomaniak, mais je ne savais pas dans quel ordre faire les étapes
+ni comment adapter notre code pour qu'il fonctionne à la fois en local et en
+ligne.
+
+**Comment :** je lui ai donné une présentation du cours sur le déploiement(de l'année passée) et
+des captures d'écran du Manager Infomaniak, et il m'a guidée étape par étape.
+Les actions dans Infomaniak (création de la base `e96752_fynjbdd`, exécution
+du script SQL dans phpMyAdmin, envoi des fichiers avec Web FTP)
