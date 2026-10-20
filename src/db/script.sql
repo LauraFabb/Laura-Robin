@@ -1,5 +1,3 @@
-USE my_database;
-
 CREATE TABLE utilisateurs (
     id INT AUTO_INCREMENT PRIMARY KEY,
     prenom VARCHAR(100) NOT NULL,

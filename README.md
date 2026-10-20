@@ -221,3 +221,36 @@ fonctionnalités que nous prévoyons de développer.
 > rencontrées et des retours reçus.
 http://localhost:8080/src/public/index.php 
 http://localhost:9090/index.php?route=/database/designer&db=my_database 
+
+## Déploiement
+
+L'application est déployée sur l'hébergement web Infomaniak avec une base de
+données MariaDB dédiée.
+
+**Lien vers l'application en ligne : <https://fynj.ch>**
+
+### Marche à suivre
+
+1. Dans le Manager Infomaniak (Web & Domaines → `fynj.ch`), créer une base de
+   données MariaDB dédiée (`e96752_fynjbdd`) et un utilisateur ayant les droits
+   sur cette base.
+2. Ouvrir phpMyAdmin depuis le Manager, sélectionner la base `e96752_fynjbdd`,
+   puis exécuter le script [`src/db/script.sql`](src/db/script.sql) dans
+   l'onglet SQL pour créer les tables.
+3. Créer un accès FTP / SSH depuis le Manager (section FTP / SSH).
+4. Transférer le contenu du dossier `src/public/` dans le dossier du site
+   `fynj.ch` à l'aide d'un client FTP (par exemple FileZilla).
+5. Sur le serveur, créer le fichier `config.php` à partir de
+   [`src/public/config.example.php`](src/public/config.example.php) et y
+   renseigner les accès de la base Infomaniak (hôte
+   `e96752.myd.infomaniak.com`, nom de la base, utilisateur et mot de passe).
+6. Ouvrir <https://fynj.ch> : la page indique que la connexion à la base de
+   données fonctionne et liste les tables.
+
+### Configuration
+
+Les accès à la base de données sont définis dans `src/public/config.php`. Ce
+fichier n'est pas versionné (voir `.gitignore`) car il contient des mots de
+passe. Pour travailler en local, copier `config.example.php` en `config.php` :
+les valeurs par défaut correspondent aux services Docker de `compose.yaml`.
+
