@@ -1,9 +1,5 @@
 <?php
-const DB_HOST = 'mariadb';
-const DB_PORT = 3306;
-const DB_NAME = 'my_database';
-const DB_USER = 'username';
-const DB_PASSWORD = 'password';
+require __DIR__ . '/config.php';
 
 $dsn = "mysql:host=" . DB_HOST . ";port=" . DB_PORT . ";dbname=" . DB_NAME . ";charset=utf8mb4";
 
@@ -12,7 +8,7 @@ $pdo = new PDO($dsn, DB_USER, DB_PASSWORD, [
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
 ]);
 
-// Liste des tables de la base (14 attendues après avoir lancé script.sql)
+
 $sql = "SHOW TABLES";
 
 $stmt = $pdo->prepare($sql);

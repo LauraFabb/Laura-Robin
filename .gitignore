@@ -12,3 +12,7 @@ Thumbs.db
 
 # Folder config file
 [Dd]esktop.ini
+
+## Projet
+# Configuration avec les mots de passe
+src/public/config.php
