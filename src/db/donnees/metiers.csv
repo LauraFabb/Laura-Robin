@@ -1,0 +1,19 @@
+id,id_categorie,nom,description
+1,1,Développeur·se front-end,"Code la partie visible d'un site ou d'une application (HTML, CSS, JavaScript, frameworks comme React ou Vue)."
+2,1,Développeur·se back-end,"Développe la partie serveur : logique métier, API et bases de données (PHP, Node.js, SQL)."
+3,1,Développeur·se full-stack,Travaille à la fois sur le front-end et le back-end d'une application web.
+4,1,Développeur·se mobile,"Crée des applications pour smartphones iOS et Android (Swift, Kotlin, Flutter ou React Native)."
+5,2,UX Designer,"Étudie les besoins des utilisateur·trices et conçoit des parcours simples et efficaces (wireframes, prototypes, tests)."
+6,2,UI Designer,"Conçoit l'aspect visuel des interfaces : couleurs, typographie, composants et design system."
+7,2,UX Researcher,Mène des entretiens et des tests utilisateurs pour comprendre les comportements et guider les choix de conception.
+8,3,Product Designer,"Conçoit un produit numérique de bout en bout, de la recherche utilisateur à l'interface finale."
+9,3,Product Design Manager,Dirige une équipe de designers et définit la vision et la qualité du design d'un produit.
+10,3,Product Owner,Représente les utilisateurs auprès de l'équipe de développement et priorise les fonctionnalités à réaliser.
+11,3,Product Manager,"Définit la stratégie d'un produit numérique et coordonne design, technique et business pour le faire évoluer."
+12,4,Responsable e-commerce,"Pilote une boutique en ligne : offre, ventes, expérience client et outils."
+13,4,E-commerce Project Leader,"Conduit les projets d'une boutique en ligne : nouvelle plateforme, fonctionnalités, intégrations."
+14,4,Spécialiste marketing digital,"Attire et fidélise les clients en ligne avec le SEO, la publicité, les e-mails et les réseaux sociaux."
+15,5,Chef·fe de projet digital,"Coordonne un projet web ou numérique, du besoin du client jusqu'à la mise en ligne."
+16,5,Chef·fe de projet technique,Encadre la réalisation technique d'un projet et fait le lien entre le client et les développeur·ses.
+17,5,Scrum Master,Accompagne une équipe qui travaille en méthode agile Scrum et l'aide à s'améliorer.
+18,5,Coordinateur·trice de projets digitaux,"Organise et suit plusieurs projets numériques, souvent dans une organisation ou le secteur public."
