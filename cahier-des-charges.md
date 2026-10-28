@@ -11,7 +11,7 @@ Projet réalisé dans le cadre de nos études à la [HEIG-VD](https://heig-vd.ch
 
 ## 2. But du projet
 
-Aider les étudiant·es en Bachelor Ingénierie des médias à choisir leur futur métier (et le Master qui y mène) en comparant les débouchés selon plusieurs critères : salaire, niveau de spécialisation, risque lié à l'IA, projets à réaliser pour s'en rapprocher et conseils pour postuler.
+Aider les étudiant·es en Bachelor Ingénierie des médias à choisir leur futur domaine de métiers (et le Master qui y mène) selon leurs centres d'intérêt, puis à comparer les débouchés : métiers possibles, salaire, risque lié à l'IA, projets à réaliser pour s'en rapprocher et conseils pour postuler.
 
 **Public cible :** étudiant·es de Bachelor en Ingénierie des médias, sur ordinateur et sur mobile.
 
@@ -19,10 +19,10 @@ Aider les étudiant·es en Bachelor Ingénierie des médias à choisir leur futu
 
 1. **Accueil (public)** : la page explique le but du site et comment ça marche, puis invite à commencer le quiz.
 2. **Connexion / inscription** : pour commencer le quiz, il faut se connecter ou créer un compte.
-3. **Quiz d'orientation (privé)** : l'étudiant·e répond à quelques questions sur 5 critères : le salaire visé, le niveau de spécialisation, la créativité, la résistance à l'IA et l'envie de faire un Master. Ses réponses filtrent les métiers.
-4. **Catalogue filtré (privé)** : le site affiche les métiers qui correspondent au profil, classés par pertinence.
-5. **Fiche métier (privé)** : salaire, niveau de spécialisation, risque IA, Masters accessibles, projets à réaliser, conseils pour postuler.
-6. **Favoris et plan d'action (privé)** : l'étudiant·e garde ses métiers préférés et suit une checklist de projets pour s'en rapprocher.
+3. **Quiz d'orientation (privé)** : l'étudiant·e répond à 12 affirmations (2 par critère) sur une échelle d'accord. Elles portent sur 6 critères liés à ses centres d'intérêt : technique et code, design visuel, compréhension des utilisateurs, business et chiffres, organisation et coordination, leadership et décision.
+4. **Catalogue filtré (privé)** : le site affiche les catégories de métiers (par exemple Développement web et mobile, UX/UI Design, E-commerce…) classées par score de correspondance avec le profil.
+5. **Fiche catégorie (privé)** : description, salaire, risque IA, liste des métiers de la catégorie, Masters accessibles, conseils pour postuler et projets suggérés.
+6. **Favoris et plan d'action (privé)** : l'étudiant·e garde ses catégories préférées et suit une checklist de projets pour s'en rapprocher.
 
 ### 3.1 Retour sur le site (sauvegarde des résultats)
 
@@ -43,7 +43,7 @@ Aider les étudiant·es en Bachelor Ingénierie des médias à choisir leur futu
 ### 4.1 Pages
 
 - **Pages publiques** : accueil (avec explication du fonctionnement), connexion, à propos et inscription.
-- **Pages privées** : quiz, catalogue filtré, fiche métier, favoris et plan d'action, profil.
+- **Pages privées** : quiz, catalogue filtré, fiche catégorie, favoris et plan d'action, profil.
 
 ### 4.2 Comptes
 
@@ -54,39 +54,59 @@ Aider les étudiant·es en Bachelor Ingénierie des médias à choisir leur futu
 - Suppression du compte, avec suppression des données associées.
 - Messages d'erreur clairs : e-mail déjà utilisé, mot de passe incorrect, champs manquants, mot de passe trop faible.
 
-### 4.3 Quiz et classement des métiers
+### 4.3 Quiz et classement des catégories
 
-- Environ 8 à 12 questions, avec barre de progression et possibilité de revenir à la question précédente.
-- Chaque métier a une valeur pour chacun des 5 critères du quiz. Le classement se base sur la proximité entre les réponses et ces valeurs.
-- Chaque métier du catalogue affiche un **score de correspondance** (par exemple en %).
-- Si aucun métier ne correspond bien, le site propose d'élargir les critères plutôt que d'afficher une page vide.
+- 12 questions (2 par critère), avec barre de progression et possibilité de revenir à la question précédente.
+- Les 6 critères du quiz :
 
-### 4.4 Catalogue et fiches métier
+| Critère | Ce qu'il mesure |
+| :------ | :-------------- |
+| Technique et code | Aimer programmer, comprendre comment les choses fonctionnent et résoudre des problèmes techniques |
+| Design visuel | Aimer créer des interfaces et des visuels soignés : mise en page, couleurs, typographie, maquettes |
+| Compréhension des utilisateurs | Aimer observer, interroger et tester avec les utilisateur·trices pour comprendre leurs besoins |
+| Business et chiffres | S'intéresser à la vente, au marketing et à l'analyse de données pour prendre des décisions |
+| Organisation et coordination | Aimer planifier, répartir le travail, suivre les délais et gérer la relation avec un client |
+| Leadership et décision | Aimer prendre des décisions, défendre une vision et encadrer une équipe |
 
-- Le catalogue peut être filtré et trié manuellement après le quiz (salaire, risque IA, spécialisation).
-- Chaque fiche contient : description, salaire indicatif (fourchette), niveau de spécialisation, risque IA, Masters accessibles, projets à réaliser, conseils pour postuler.
+- Chaque catégorie a une valeur de 1 à 5 pour chacun des 6 critères. Le classement se base sur la proximité entre les réponses et ces valeurs.
+- Chaque catégorie du catalogue affiche un **score de correspondance** (par exemple en %).
+- Si aucune catégorie ne correspond bien, le site propose d'élargir les critères plutôt que d'afficher une page vide.
+
+### 4.4 Catalogue et fiches catégorie
+
+- Le catalogue peut être trié manuellement après le quiz (salaire, risque IA).
+- Chaque fiche contient : description, salaire indicatif (fourchette), risque IA, liste des métiers de la catégorie, Masters accessibles, conseils pour postuler et projets suggérés.
 - Un bouton **« Ajouter aux favoris »** est présent sur chaque fiche et chaque carte du catalogue.
 
 ### 4.5 Favoris et plan d'action
 
-- Ajout et retrait de métiers favoris.
+- Ajout et retrait de catégories favorites.
 - Pour chaque favori, une checklist de projets à réaliser (cases à cocher) avec un indicateur de progression.
 - L'état des cases cochées est sauvegardé dans le compte.
 
 ### 4.6 E-mails
 
 - Confirmation d'inscription.
-- Envoi du résultat du quiz (liste des métiers recommandés avec lien vers le site).
+- Envoi du résultat du quiz (liste des catégories recommandées avec lien vers le site).
 - Réinitialisation du mot de passe.
 
 ## 5. Fonctionnalités optionnelles
 
-- Comparateur de 2 à 3 métiers côte à côte.
+- Comparateur de 2 à 3 catégories côte à côte.
 - Détail du risque IA : tâches menacées et tâches protégées.
 - Export du plan d'action en PDF.
 - Témoignages d'alumni.
 
 ## 6. Données à stocker
 
-- **Utilisateur·trice** : nom, e-mail, mot de passe haché, date d'inscription.
-- **Résultats du quiz**
+- **Utilisateur·trice** : prénom, nom, e-mail, mot de passe haché, rôle, formation, année d'études, langue, date d'inscription.
+- **Critères** : nom et description des 6 critères du quiz.
+- **Questions** : texte, critère évalué et ordre d'affichage.
+- **Réponses** : valeur donnée par l'utilisateur·trice à chaque question (résultats du quiz).
+- **Catégories** : nom, description, fourchette de salaire, risque IA.
+- **Valeurs des critères** : valeur de chaque catégorie pour chacun des 6 critères.
+- **Métiers** : nom et description, rattachés à une catégorie.
+- **Masters** : nom et école, liés aux catégories auxquelles ils mènent.
+- **Conseils** : titre, texte et projet suggéré pour chaque catégorie.
+- **Favoris** : catégories favorites de chaque utilisateur·trice, avec la date d'ajout.
+- **Réinitialisations du mot de passe** : token haché, date d'expiration et date d'utilisation.
