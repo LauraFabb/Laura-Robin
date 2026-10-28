@@ -22,7 +22,7 @@ Aider les étudiant·es en Bachelor Ingénierie des médias à choisir leur futu
 3. **Quiz d'orientation (privé)** : l'étudiant·e répond à 12 affirmations (2 par critère) sur une échelle d'accord. Elles portent sur 6 critères liés à ses centres d'intérêt : technique et code, design visuel, compréhension des utilisateurs, business et chiffres, organisation et coordination, leadership et décision.
 4. **Catalogue filtré (privé)** : le site affiche les catégories de métiers (par exemple Développement web et mobile, UX/UI Design, E-commerce…) classées par score de correspondance avec le profil.
 5. **Fiche catégorie (privé)** : description, salaire, risque IA, liste des métiers de la catégorie, Masters accessibles, conseils pour postuler et projets suggérés.
-6. **Favoris et plan d'action (privé)** : l'étudiant·e garde ses catégories préférées et suit une checklist de projets pour s'en rapprocher.
+6. **Favoris et plan d'action (privé)** : l'étudiant·e garde ses catégories préférées et suit une liste de projets pour s'en rapprocher.
 
 ### 3.1 Retour sur le site (sauvegarde des résultats)
 
@@ -30,7 +30,7 @@ Aider les étudiant·es en Bachelor Ingénierie des médias à choisir leur futu
 - Si l'on quitte le site puis qu'on revient (session encore active ou nouvelle connexion), on arrive directement sur son **catalogue filtré**, sans refaire le test.
 - Si le quiz a été quitté en cours de route, les réponses déjà données sont conservées et on reprend là où on s'est arrêté.
 - Un bouton **« Refaire le test »** permet de recommencer. Avant d'écraser les anciens résultats, un message de confirmation est affiché.
-- Les **favoris** et la **checklist du plan d'action** ne sont pas effacés quand on refait le test.
+- Les **favoris** et la **liste du plan d'action** ne sont pas effacés quand on refait le test.
 
 ### 3.2 Règles d'accès
 
@@ -81,8 +81,7 @@ Aider les étudiant·es en Bachelor Ingénierie des médias à choisir leur futu
 ### 4.5 Favoris et plan d'action
 
 - Ajout et retrait de catégories favorites.
-- Pour chaque favori, une checklist de projets à réaliser (cases à cocher) avec un indicateur de progression.
-- L'état des cases cochées est sauvegardé dans le compte.
+- Pour chaque favori, une liste de projets à réaliser
 
 ### 4.6 E-mails
 
