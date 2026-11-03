@@ -254,3 +254,14 @@ fichier n'est pas versionné (voir `.gitignore`) car il contient des mots de
 passe. Pour travailler en local, copier `config.example.php` en `config.php` :
 les valeurs par défaut correspondent aux services Docker de `compose.yaml`.
 
+## Structure des classes (POO)
+
+Le code PHP est organisé en classes, chargées automatiquement par `src/autoloader.php`.
+Le namespace d'une classe correspond à son dossier dans `src/classes/`.
+
+| Type | Rôle | Classes |
+| :--- | :--- | :------ |
+| Connexion | Crée la connexion PDO à partir de `src/config.php` | `Database` |
+| Entités | Représentent une ligne d'une table (propriétés privées, constructeur, getters) | `Categories\Categorie`, `Questions\Question` |
+| Managers | Contiennent les requêtes SQL d'une table | `Categories\CategoriesManager`, `Questions\QuestionsManager`, `Reponses\ReponsesManager` |
+| Interfaces | Définissent les méthodes que chaque manager doit avoir | `CategoriesManagerInterface`, `QuestionsManagerInterface`, `ReponsesManagerInterface` |
