@@ -1,0 +1,183 @@
+/* ============================================================
+   a-propos.css – Styles spécifiques à la page À propos
+   ============================================================ */
+
+/* ── Titres ─────────────────────────────────────────────────── */
+.eyebrow {
+  font: 400 11px var(--mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+h1 {
+  font-size: clamp(34px, 5vw, 48px);
+  line-height: 1.08;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 18px;
+}
+h2 {
+  font-size: clamp(26px, 3.5vw, 34px);
+  line-height: 1.15;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+.muted {
+  color: var(--muted);
+  font-size: 15px;
+  margin-top: 8px;
+}
+
+/* ── Hero ───────────────────────────────────────────────────── */
+.hero .wrap {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 48px;
+  align-items: center;
+}
+.hero .lead {
+  max-width: 48ch;
+  color: var(--muted);
+  margin-bottom: 22px;
+}
+.hero .meta {
+  font: 400 11px var(--mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.panel {
+  background: var(--ink);
+  color: #fff;
+  border-radius: 20px;
+  padding: 28px;
+}
+.panel .eyebrow {
+  color: var(--lime);
+  margin-bottom: 16px;
+}
+.panel h2 {
+  font-size: 28px;
+  line-height: 1.12;
+  margin-bottom: 22px;
+}
+.panel hr {
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 16px;
+}
+.panel p {
+  font-size: 13px;
+  opacity: 0.8;
+  max-width: 22ch;
+}
+
+/* ── Point de départ ────────────────────────────────────────── */
+.start {
+  background: #fff;
+}
+.start .wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+.start .txt {
+  display: grid;
+  gap: 16px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* ── Approche ───────────────────────────────────────────────── */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+.step {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 22px;
+  min-height: 170px;
+}
+.step .n {
+  font: 400 18px var(--mono);
+  margin-bottom: 22px;
+}
+.step h3 {
+  font-size: 17px;
+  margin-bottom: 6px;
+}
+.step p {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ── Engagements ────────────────────────────────────────────── */
+.commit {
+  background: var(--ink);
+  color: #fff;
+}
+.commit .eyebrow {
+  color: var(--lime);
+}
+.commit .wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+.commit .intro p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  margin-top: 16px;
+  max-width: 40ch;
+}
+.commit dl {
+  display: grid;
+  gap: 22px;
+}
+.commit dt {
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+.commit dd {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* ── Appel à l'action final ─────────────────────────────────── */
+.final {
+  background: var(--red);
+  color: #fff;
+  text-align: center;
+  padding: 64px 0;
+}
+.final h2 {
+  max-width: 22ch;
+  margin: 0 auto 12px;
+  font-size: clamp(24px, 3.5vw, 32px);
+}
+.final p {
+  font-size: 13px;
+  color: var(--lime);
+  margin-bottom: 22px;
+}
+.final .btn-black {
+  color: var(--lime);
+}
+
+/* ── Footer (texte de présentation) ─────────────────────────── */
+footer small {
+  max-width: 34ch;
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .hero .wrap,
+  .start .wrap,
+  .commit .wrap,
+  .steps {
+    grid-template-columns: 1fr;
+  }
+}
