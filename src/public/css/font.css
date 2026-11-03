@@ -1,0 +1,44 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--bg);
+}
+
+/* Titres */
+h1 { font-size: 1rem;   font-weight: 700; }
+h2 { font-size: 1.6rem; font-weight: 800; }
+h3 { font-size: 1.1rem; font-weight: 700; }
+
+/* Liens */
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+/* Header */
+.site-header h1 {
+    color: var(--bitter-lime);
+    letter-spacing: 0.02em;
+}
+.site-header p {
+    font-size: 0.85rem;
+    color: var(--white);
+}
+
+/* Hero */
+.hero h2 {
+    margin-bottom: 1rem;
+}
+.hero p {
+    color: var(--text-muted);
+    line-height: 1.7;
+}

@@ -1,0 +1,23 @@
+:root {
+    /* Charte graphique FYNJ */
+    --red-orange: #ff4502;
+    --bitter-lime: #c2ff01;
+    --mauve: #dcb8ff;
+    --blue: #0044ff;
+    --black: #000000;
+    --white: #ffffff;
+
+    /* Couleurs de base */
+    --bg: #ffffff;
+    --card-bg: #ffffff;
+    --border: #000000;
+
+    /* Texte */
+    --text: #000000;
+    --text-muted: #4a4a4a;
+    --accent: var(--blue);
+
+    /* Utilitaires */
+    --radius: 1.25rem;
+    --shadow: 4px 4px 0 var(--black);
+}

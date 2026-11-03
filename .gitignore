@@ -15,7 +15,7 @@ Thumbs.db
 
 ## Projet
 # Configuration avec les mots de passe
-src/public/config.php
+src/config.php
 
 # Fichiers préparés pour l'envoi sur Infomaniak (contient le mot de passe)
 a-envoyer-sur-infomaniak/
