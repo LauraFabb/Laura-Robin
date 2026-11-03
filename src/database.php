@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/public/config.php';
+require_once __DIR__ . '/config.php';
 
 function getPDO(): PDO {
     $dsn = 'mysql:host=' . DB_HOST . ';port=' . DB_PORT . ';dbname=' . DB_NAME . ';charset=utf8mb4';

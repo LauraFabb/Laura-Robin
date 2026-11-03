@@ -5,7 +5,7 @@ require __DIR__ . '/../database.php';
 require __DIR__ . '/../functions.php';
 
 $pdo = getPDO();
-$idUtilisateur = (int) $_SESSION['utilisateur_id'];
+$idUtilisateur = (int) ($_SESSION['utilisateur_id'] ?? 1);
 
 
 $questions = getAllQuestions($pdo);
