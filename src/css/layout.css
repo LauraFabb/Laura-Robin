@@ -1,0 +1,107 @@
+/* ============================================================
+   layout.css – Structure des pages
+   ============================================================ */
+
+/* ── Conteneur centré ───────────────────────────────────────── */
+.container {
+    width: min(860px, 100% - 2rem);
+    margin-inline: auto;
+    padding-block: 1.5rem;
+}
+
+/* ── Header sticky ──────────────────────────────────────────── */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--black);
+    text-align: center;
+    padding: 0.85rem 1.5rem;
+}
+
+/* ── Barre de progression (dans le header) ──────────────────── */
+.progress {
+    width: min(500px, 100%);
+    height: 10px;
+    margin: 0.6rem auto 0.25rem;
+    border-radius: 999px;
+    background: #333333;
+    overflow: hidden;
+}
+
+.progress__bar {
+    height: 100%;
+    background: var(--bitter-lime);
+    border-radius: 999px;
+    transition: width 0.25s ease;
+}
+
+.site-header .progress__text {
+    font-size: 0.8rem;
+    color: var(--mauve);
+}
+
+/* ── Hero ───────────────────────────────────────────────────── */
+.hero {
+    text-align: center;
+    padding: 2rem 1rem 0;
+    max-width: 680px;
+    margin-inline: auto;
+}
+
+/* ── Boîte d'erreurs ────────────────────────────────────────── */
+.error-box {
+    background: var(--red-orange);
+    color: var(--white);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+}
+
+.error-box ul {
+    margin-top: 0.4rem;
+    padding-left: 1.25rem;
+}
+
+/* ── Zone du bouton d'envoi ─────────────────────────────────── */
+.selection-summary {
+    display: flex;
+    justify-content: center;
+    padding: 1.25rem;
+    border-radius: var(--radius);
+    background: var(--mauve);
+}
+
+/* ── Bouton principal ───────────────────────────────────────── */
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.8rem 1.75rem;
+    background: var(--red-orange);
+    color: var(--white);
+    border: 2px solid var(--black);
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.btn-primary:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--black);
+}
+
+.btn-primary:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--black);
+}
+
+/* ── Footer ─────────────────────────────────────────────────── */
+footer {
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+    color: var(--text-muted);
+}
