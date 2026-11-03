@@ -1,0 +1,170 @@
+/* ============================================================
+   catalogue.css – Page catalogue (catégories classées)
+   (même principe que les cartes personnages de devapplis)
+   ============================================================ */
+
+/* ── En-tête ────────────────────────────────────────────────── */
+.catalogue-head {
+  background: var(--ink);
+  color: #fff;
+  padding: 56px 0;
+}
+.catalogue-head .eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--lime);
+  margin-bottom: 8px;
+}
+.catalogue-head h1 {
+  font-size: clamp(30px, 4.5vw, 44px);
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+}
+.catalogue-head .lead {
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 56ch;
+  margin-bottom: 24px;
+}
+
+/* ── Zone catalogue ─────────────────────────────────────────── */
+.catalogue {
+  padding-top: 32px;
+}
+
+/* ── Message "aucune catégorie ne ressort" ──────────────────── */
+.notice {
+  background: #fff;
+  border-left: 4px solid var(--red);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 24px;
+  font-size: 14px;
+}
+.notice a {
+  color: var(--red);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* ── Grille des catégories ──────────────────────────────────── */
+.categorie-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+/* ── Carte catégorie ────────────────────────────────────────── */
+.categorie-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  transition:
+    transform 0.15s,
+    box-shadow 0.15s;
+}
+.categorie-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+.categorie-card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.score {
+  font-size: 12px;
+  font-weight: 700;
+}
+.score::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--lime);
+  margin-right: 6px;
+}
+
+.categorie-nom {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.score-bar {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--soft);
+  overflow: hidden;
+}
+.score-bar span {
+  display: block;
+  height: 100%;
+  background: var(--lime);
+  border-radius: 999px;
+}
+
+.categorie-desc {
+  font-size: 14px;
+  color: var(--muted);
+  flex-grow: 1;
+}
+
+/* ── Chiffres (salaire, risque IA) ──────────────────────────── */
+.facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.facts div {
+  background: #f5f6ef;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 11px;
+  color: var(--muted);
+}
+.facts b {
+  display: block;
+  color: var(--ink);
+  font-size: 14px;
+}
+.facts .risque--faible {
+  color: #15803d;
+}
+.facts .risque--moyen {
+  color: #c2410c;
+}
+.facts .risque--eleve {
+  color: var(--red);
+}
+
+.categorie-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--red);
+}
+.categorie-link:hover {
+  text-decoration: underline;
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .categorie-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 620px) {
+  .categorie-grid {
+    grid-template-columns: 1fr;
+  }
+  .catalogue-head {
+    padding: 40px 0;
+  }
+}

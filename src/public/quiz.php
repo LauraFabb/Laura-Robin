@@ -1,24 +1,33 @@
 <?php
 session_start();
 
-require __DIR__ . '/../database.php';
-require __DIR__ . '/../functions.php';
+require __DIR__ . '/../autoloader.php';
 
-$pdo = getPDO();
+use Questions\QuestionsManager;
+use Reponses\ReponsesManager;
+
+// 1) Créer la connexion et les gestionnaires (managers)
+$database         = new Database();
+$questionsManager = new QuestionsManager($database);
+$reponsesManager  = new ReponsesManager($database);
+
+// Utilisateur : pour l'instant, utilisateur n°1 par défaut
+// (à remplacer par la vérification de connexion quand connexion.php sera fait)
 $idUtilisateur = (int) ($_SESSION['utilisateur_id'] ?? 1);
 
+// 2) Charger les questions et les réponses déjà enregistrées (pour reprendre le quiz)
+$questions = $questionsManager->getAll();
+$reponses  = $reponsesManager->getByUtilisateur($idUtilisateur);
+$echelle   = $reponsesManager->getEchelle();
+$errors    = [];
 
-$questions = getAllQuestions($pdo);
-$reponses = getReponsesByUtilisateur($pdo, $idUtilisateur);
-$errors = [];
-
-
+// 3) Traitement du formulaire
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $reponses = $_POST['reponses'] ?? [];
-    $errors = validateReponses($questions, $reponses);
+    $errors   = $reponsesManager->valider($questions, $reponses);
 
     if (empty($errors)) {
-        saveReponses($pdo, $idUtilisateur, $reponses);
+        $reponsesManager->enregistrer($idUtilisateur, $reponses);
         header('Location: catalogue.php');
         exit;
     }
@@ -85,9 +94,9 @@ $nbReponses = count($reponses);
             <section class="container question-list">
                 <?php foreach ($questions as $question): ?>
                     <?php
-                    $qid   = (int) $question['id'];
-                    $ordre = (int) $question['ordre'];
-                    $texte = htmlspecialchars($question['texte']);
+                    $qid   = $question->getId();
+                    $ordre = $question->getOrdre();
+                    $texte = htmlspecialchars($question->getTexte());
                     $valeurChoisie = (int) ($reponses[$qid] ?? 0);
                     ?>
                     <div class="question-card" id="question-<?= $qid ?>">
@@ -95,7 +104,7 @@ $nbReponses = count($reponses);
                         <h3 class="question-text"><?= $texte ?></h3>
 
                         <div class="answer-grid">
-                            <?php foreach (ECHELLE_REPONSES as $valeur => $label): ?>
+                            <?php foreach ($echelle as $valeur => $label): ?>
                                 <div>
                                     <input
                                         type="radio"
