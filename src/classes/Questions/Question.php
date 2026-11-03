@@ -1,7 +1,6 @@
 <?php
 namespace Questions;
 
-// Une question du quiz (une ligne de la table "questions")
 class Question {
     private int $id;
     private int $idCritere;
@@ -15,7 +14,6 @@ class Question {
         $this->ordre = $ordre;
     }
 
-    // ── Getters ─────────────────────────────────────────────────
     public function getId(): int {
         return $this->id;
     }

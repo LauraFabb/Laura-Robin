@@ -1,7 +1,6 @@
 <?php
 namespace Reponses;
 
-// Contrat : les méthodes que doit avoir un gestionnaire de réponses
 interface ReponsesManagerInterface {
     public function getEchelle(): array;
     public function getByUtilisateur(int $idUtilisateur): array;

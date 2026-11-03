@@ -1,27 +1,21 @@
 <?php
-session_start();
-
 require __DIR__ . '/../autoloader.php';
 
 use Questions\QuestionsManager;
 use Reponses\ReponsesManager;
 
-// 1) Créer la connexion et les gestionnaires (managers)
 $database         = new Database();
 $questionsManager = new QuestionsManager($database);
 $reponsesManager  = new ReponsesManager($database);
 
-// Utilisateur : pour l'instant, utilisateur n°1 par défaut
-// (à remplacer par la vérification de connexion quand connexion.php sera fait)
-$idUtilisateur = (int) ($_SESSION['utilisateur_id'] ?? 1);
+// Temporaire : utilisateur n°1 tant que la connexion n'existe pas
+$idUtilisateur = 1;
 
-// 2) Charger les questions et les réponses déjà enregistrées (pour reprendre le quiz)
 $questions = $questionsManager->getAll();
 $reponses  = $reponsesManager->getByUtilisateur($idUtilisateur);
 $echelle   = $reponsesManager->getEchelle();
 $errors    = [];
 
-// 3) Traitement du formulaire
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $reponses = $_POST['reponses'] ?? [];
     $errors   = $reponsesManager->valider($questions, $reponses);
@@ -97,6 +91,7 @@ $nbReponses = count($reponses);
                     $qid   = $question->getId();
                     $ordre = $question->getOrdre();
                     $texte = htmlspecialchars($question->getTexte());
+                    // Aide avec l'IA (n°7)
                     $valeurChoisie = (int) ($reponses[$qid] ?? 0);
                     ?>
                     <div class="question-card" id="question-<?= $qid ?>">

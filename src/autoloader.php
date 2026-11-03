@@ -1,7 +1,5 @@
 <?php
-// Autoloader : charge automatiquement une classe quand on l'utilise.
-// Le namespace correspond au dossier dans src/classes/
-// Exemple : Categories\CategoriesManager => src/classes/Categories/CategoriesManager.php
+// Aide avec l'IA (n°1)
 spl_autoload_register(function ($classe) {
     $fichier = __DIR__ . '/classes/' . str_replace('\\', '/', $classe) . '.php';
 

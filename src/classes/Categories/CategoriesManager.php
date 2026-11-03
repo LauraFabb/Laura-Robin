@@ -4,7 +4,6 @@ namespace Categories;
 use Database;
 use PDO;
 
-// Gère les requêtes SQL liées aux catégories
 class CategoriesManager implements CategoriesManagerInterface {
     private PDO $pdo;
 
@@ -12,7 +11,6 @@ class CategoriesManager implements CategoriesManagerInterface {
         $this->pdo = $database->getPdo();
     }
 
-    // Retourne toutes les catégories (tableau d'objets Categorie)
     public function getAll(): array {
         $stmt = $this->pdo->query('SELECT * FROM categories ORDER BY nom');
         $rows = $stmt->fetchAll();
@@ -31,18 +29,15 @@ class CategoriesManager implements CategoriesManagerInterface {
         return $categories;
     }
 
-    // Retourne les catégories avec leur score, de la plus compatible à la moins compatible.
-    // $profil = la moyenne des réponses pour chaque critère (id_critere => moyenne)
     public function getAllClassees(array $profil): array {
         $categories = $this->getAll();
 
-        // Calculer le score de chaque catégorie
         foreach ($categories as $categorie) {
             $score = $this->calculerScore($categorie->getId(), $profil);
             $categorie->setScore($score);
         }
 
-        // Trier : le plus grand score en premier
+        // Aide avec l'IA (n°5)
         usort($categories, function ($a, $b) {
             return $b->getScore() - $a->getScore();
         });
@@ -50,9 +45,7 @@ class CategoriesManager implements CategoriesManagerInterface {
         return $categories;
     }
 
-    // Calcule le score (en %) d'une catégorie par rapport au profil.
-    // Pour chaque critère, on regarde l'écart entre la réponse moyenne
-    // et la valeur de la catégorie : plus l'écart est petit, plus le score est haut.
+    // Aide avec l'IA (n°4)
     private function calculerScore(int $idCategorie, array $profil): int {
         $stmt = $this->pdo->prepare('SELECT id_critere, valeur FROM valeurs_criteres WHERE id_categorie = :id');
         $stmt->execute([':id' => $idCategorie]);
@@ -62,9 +55,9 @@ class CategoriesManager implements CategoriesManagerInterface {
         $ecartMax = 0;
 
         foreach ($valeurs as $valeur) {
-            $moyenne = $profil[$valeur['id_critere']] ?? 3; // 3 = neutre si pas de réponse
+            $moyenne = $profil[$valeur['id_critere']] ?? 3;
             $ecartTotal = $ecartTotal + abs($moyenne - $valeur['valeur']);
-            $ecartMax = $ecartMax + 4; // l'écart maximum sur une échelle de 1 à 5 est 4
+            $ecartMax = $ecartMax + 4;
         }
 
         if ($ecartMax == 0) {

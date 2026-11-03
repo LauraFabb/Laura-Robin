@@ -1,7 +1,6 @@
 <?php
 namespace Categories;
 
-// Une catégorie de métiers (une ligne de la table "categories")
 class Categorie {
     private int $id;
     private string $nom;
@@ -9,7 +8,7 @@ class Categorie {
     private int $salaireMin;
     private int $salaireMax;
     private int $risqueIa;
-    private int $score = 0; // score de correspondance avec le profil (en %)
+    private int $score = 0;
 
     public function __construct(
         int $id,
@@ -27,7 +26,6 @@ class Categorie {
         $this->risqueIa = $risqueIa;
     }
 
-    // ── Getters ─────────────────────────────────────────────────
     public function getId(): int {
         return $this->id;
     }
@@ -56,21 +54,16 @@ class Categorie {
         return $this->score;
     }
 
-    // ── Setter ──────────────────────────────────────────────────
     public function setScore(int $score): void {
         $this->score = $score;
     }
 
-    // ── Méthodes d'affichage ────────────────────────────────────
-
-    // Salaire en milliers : "CHF 80k – 115k"
     public function getSalaireFormate(): string {
         $min = round($this->salaireMin / 1000);
         $max = round($this->salaireMax / 1000);
         return 'CHF ' . $min . 'k – ' . $max . 'k';
     }
 
-    // Niveau de risque IA (sert de classe CSS) : 'faible', 'moyen' ou 'eleve'
     public function getNiveauRisqueIa(): string {
         if ($this->risqueIa <= 2) {
             return 'faible';
@@ -81,7 +74,6 @@ class Categorie {
         }
     }
 
-    // Texte du risque IA : "Faible", "Moyen" ou "Élevé"
     public function getTexteRisqueIa(): string {
         if ($this->risqueIa <= 2) {
             return 'Faible';

@@ -1,21 +1,16 @@
 <?php
-session_start();
-
 require __DIR__ . '/../autoloader.php';
 
 use Categories\CategoriesManager;
 use Reponses\ReponsesManager;
 
-// 1) Créer la connexion et les gestionnaires (managers)
 $database          = new Database();
 $categoriesManager = new CategoriesManager($database);
 $reponsesManager   = new ReponsesManager($database);
 
-// Utilisateur : pour l'instant, utilisateur n°1 par défaut
-// (à remplacer par la vérification de connexion quand connexion.php sera fait)
-$idUtilisateur = (int) ($_SESSION['utilisateur_id'] ?? 1);
+// Temporaire : utilisateur n°1 tant que la connexion n'existe pas
+$idUtilisateur = 1;
 
-// 2) Calculer le profil de l'utilisateur et classer les catégories
 $profil        = $reponsesManager->getProfil($idUtilisateur);
 $categories    = $categoriesManager->getAllClassees($profil);
 $meilleurScore = empty($categories) ? 0 : $categories[0]->getScore();

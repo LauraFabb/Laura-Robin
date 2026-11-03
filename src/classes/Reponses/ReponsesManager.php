@@ -4,7 +4,6 @@ namespace Reponses;
 use Database;
 use PDO;
 
-// Gère les réponses des utilisateurs au quiz (table "reponses")
 class ReponsesManager implements ReponsesManagerInterface {
     private PDO $pdo;
 
@@ -12,7 +11,6 @@ class ReponsesManager implements ReponsesManagerInterface {
         $this->pdo = $database->getPdo();
     }
 
-    // Retourne l'échelle de réponse du quiz : valeur => texte affiché
     public function getEchelle(): array {
         return [
             1 => "Pas du tout d'accord",
@@ -23,7 +21,6 @@ class ReponsesManager implements ReponsesManagerInterface {
         ];
     }
 
-    // Retourne les réponses d'un utilisateur : [id_question => valeur]
     public function getByUtilisateur(int $idUtilisateur): array {
         $stmt = $this->pdo->prepare('SELECT id_question, valeur FROM reponses WHERE id_utilisateur = :id');
         $stmt->execute([':id' => $idUtilisateur]);
@@ -36,8 +33,7 @@ class ReponsesManager implements ReponsesManagerInterface {
         return $reponses;
     }
 
-    // Retourne le profil d'un utilisateur : la moyenne de ses réponses pour chaque critère
-    // [id_critere => moyenne entre 1 et 5]
+    // Aide avec l'IA (n°3)
     public function getProfil(int $idUtilisateur): array {
         $stmt = $this->pdo->prepare(
             'SELECT questions.id_critere, AVG(reponses.valeur) AS moyenne
@@ -56,8 +52,6 @@ class ReponsesManager implements ReponsesManagerInterface {
         return $profil;
     }
 
-    // Vérifie que chaque question a une réponse entre 1 et 5.
-    // Retourne la liste des erreurs (vide si tout est bon)
     public function valider(array $questions, array $reponses): array {
         $errors = [];
 
@@ -72,8 +66,7 @@ class ReponsesManager implements ReponsesManagerInterface {
         return $errors;
     }
 
-    // Enregistre les réponses d'un utilisateur.
-    // On supprime d'abord ses anciennes réponses, puis on ajoute les nouvelles.
+    // Aide avec l'IA (n°6)
     public function enregistrer(int $idUtilisateur, array $reponses): void {
         $stmt = $this->pdo->prepare('DELETE FROM reponses WHERE id_utilisateur = :id');
         $stmt->execute([':id' => $idUtilisateur]);
