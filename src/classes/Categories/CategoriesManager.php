@@ -13,7 +13,8 @@ class CategoriesManager implements CategoriesManagerInterface {
     }
 
     public function getAll(): array {
-        $stmt = $this->pdo->query('SELECT * FROM categories ORDER BY nom');
+        $stmt = $this->pdo->prepare('SELECT * FROM categories ORDER BY nom');
+        $stmt->execute();
         $rows = $stmt->fetchAll();
 
         $categories = [];

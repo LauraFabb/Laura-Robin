@@ -20,7 +20,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $errors   = $reponsesManager->valider($questions, $reponses);
 
     if (empty($errors)) {
-        $reponsesManager->enregistrer($idUtilisateur, $reponses);
+        // On garde seulement les réponses des questions qui existent
+        $reponsesValides = [];
+        foreach ($questions as $question) {
+            $reponsesValides[$question->getId()] = $reponses[$question->getId()];
+        }
+
+        $reponsesManager->enregistrer($idUtilisateur, $reponsesValides);
         header('Location: catalogue.php');
         exit;
     }
@@ -69,36 +75,36 @@ $nbReponses = count($reponses);
         </div>
 
         <!-- ERREURS -->
-        <?php if (!empty($errors)): ?>
+        <?php if (!empty($errors)) { ?>
             <div class="error-box">
                 <p><strong>Il manque des réponses :</strong></p>
                 <ul>
-                    <?php foreach ($errors as $error): ?>
+                    <?php foreach ($errors as $error) { ?>
                         <li><?= htmlspecialchars($error) ?></li>
-                    <?php endforeach; ?>
+                    <?php } ?>
                 </ul>
             </div>
-        <?php endif; ?>
+        <?php } ?>
     </div>
 
     <main class="main">
         <form action="quiz.php" method="POST" id="quiz-form">
 
             <section class="container question-list">
-                <?php foreach ($questions as $question): ?>
+                <?php foreach ($questions as $question) { ?>
                     <?php
                     $qid   = $question->getId();
                     $ordre = $question->getOrdre();
                     $texte = htmlspecialchars($question->getTexte());
                     // Aide avec l'IA (n°5)
-                    $valeurChoisie = (int) ($reponses[$qid] ?? 0);
+                    $valeurChoisie = $reponses[$qid] ?? 0;
                     ?>
                     <div class="question-card" id="question-<?= $qid ?>">
                         <span class="question-number">Question <?= $ordre ?> / <?= $nbQuestions ?></span>
                         <h3 class="question-text"><?= $texte ?></h3>
 
                         <div class="answer-grid">
-                            <?php foreach ($echelle as $valeur => $label): ?>
+                            <?php foreach ($echelle as $valeur => $label) { ?>
                                 <div>
                                     <input
                                         type="radio"
@@ -106,16 +112,17 @@ $nbReponses = count($reponses);
                                         id="q<?= $qid ?>-<?= $valeur ?>"
                                         value="<?= $valeur ?>"
                                         class="choice-input"
-                                        <?= $valeurChoisie === $valeur ? 'checked' : '' ?>>
+                                        required
+                                        <?= $valeurChoisie == $valeur ? 'checked' : '' ?>>
                                     <label for="q<?= $qid ?>-<?= $valeur ?>" class="answer-card">
                                         <span class="answer-value"><?= $valeur ?></span>
                                         <span class="answer-label"><?= htmlspecialchars($label) ?></span>
                                     </label>
                                 </div>
-                            <?php endforeach; ?>
+                            <?php } ?>
                         </div>
                     </div>
-                <?php endforeach; ?>
+                <?php } ?>
             </section>
 
             <section class="container">

@@ -56,10 +56,13 @@ class ReponsesManager implements ReponsesManagerInterface {
     public function valider(array $questions, array $reponses): array {
         $errors = [];
 
-        foreach ($questions as $question) {
-            $valeur = $reponses[$question->getId()] ?? 0;
+        // Les seules valeurs acceptées pour une réponse
+        $valeursAcceptees = ['1', '2', '3', '4', '5'];
 
-            if ($valeur < 1 || $valeur > 5) {
+        foreach ($questions as $question) {
+            $valeur = $reponses[$question->getId()] ?? '';
+
+            if (!in_array($valeur, $valeursAcceptees)) {
                 $errors[] = 'Veuillez répondre à la question ' . $question->getOrdre() . '.';
             }
         }
