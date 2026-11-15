@@ -4,9 +4,8 @@ require __DIR__ . '/../autoloader.php';
 use Categories\CategoriesManager;
 use Reponses\ReponsesManager;
 
-$database          = new Database();
-$categoriesManager = new CategoriesManager($database);
-$reponsesManager   = new ReponsesManager($database);
+$categoriesManager = new CategoriesManager();
+$reponsesManager   = new ReponsesManager();
 
 // Temporaire : utilisateur n°1 tant que la connexion n'existe pas
 $idUtilisateur = 1;
@@ -118,3 +117,4 @@ $meilleurScore = empty($categories) ? 0 : $categories[0]->getScore();
 </body>
 
 </html>
+

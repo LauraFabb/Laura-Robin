@@ -7,7 +7,8 @@ use PDO;
 class QuestionsManager implements QuestionsManagerInterface {
     private PDO $pdo;
 
-    public function __construct(Database $database) {
+    public function __construct() {
+        $database = new Database();
         $this->pdo = $database->getPdo();
     }
 

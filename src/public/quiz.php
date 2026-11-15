@@ -4,9 +4,8 @@ require __DIR__ . '/../autoloader.php';
 use Questions\QuestionsManager;
 use Reponses\ReponsesManager;
 
-$database         = new Database();
-$questionsManager = new QuestionsManager($database);
-$reponsesManager  = new ReponsesManager($database);
+$questionsManager = new QuestionsManager();
+$reponsesManager  = new ReponsesManager();
 
 // Temporaire : utilisateur n°1 tant que la connexion n'existe pas
 $idUtilisateur = 1;
@@ -91,7 +90,7 @@ $nbReponses = count($reponses);
                     $qid   = $question->getId();
                     $ordre = $question->getOrdre();
                     $texte = htmlspecialchars($question->getTexte());
-                    // Aide avec l'IA (n°7)
+                    // Aide avec l'IA (n°5)
                     $valeurChoisie = (int) ($reponses[$qid] ?? 0);
                     ?>
                     <div class="question-card" id="question-<?= $qid ?>">

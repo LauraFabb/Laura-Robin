@@ -7,7 +7,8 @@ use PDO;
 class ReponsesManager implements ReponsesManagerInterface {
     private PDO $pdo;
 
-    public function __construct(Database $database) {
+    public function __construct() {
+        $database = new Database();
         $this->pdo = $database->getPdo();
     }
 
@@ -33,7 +34,7 @@ class ReponsesManager implements ReponsesManagerInterface {
         return $reponses;
     }
 
-    // Aide avec l'IA (n°3)
+    // Aide avec l'IA (n°2)
     public function getProfil(int $idUtilisateur): array {
         $stmt = $this->pdo->prepare(
             'SELECT questions.id_critere, AVG(reponses.valeur) AS moyenne
@@ -66,7 +67,7 @@ class ReponsesManager implements ReponsesManagerInterface {
         return $errors;
     }
 
-    // Aide avec l'IA (n°6)
+    // Aide avec l'IA (n°4)
     public function enregistrer(int $idUtilisateur, array $reponses): void {
         $stmt = $this->pdo->prepare('DELETE FROM reponses WHERE id_utilisateur = :id');
         $stmt->execute([':id' => $idUtilisateur]);
