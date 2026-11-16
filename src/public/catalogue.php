@@ -4,9 +4,8 @@ require __DIR__ . '/../autoloader.php';
 use Categories\CategoriesManager;
 use Reponses\ReponsesManager;
 
-$database          = new Database();
-$categoriesManager = new CategoriesManager($database);
-$reponsesManager   = new ReponsesManager($database);
+$categoriesManager = new CategoriesManager();
+$reponsesManager   = new ReponsesManager();
 
 // Temporaire : utilisateur n°1 tant que la connexion n'existe pas
 $idUtilisateur = 1;
@@ -62,20 +61,20 @@ $meilleurScore = empty($categories) ? 0 : $categories[0]->getScore();
             <div class="wrap">
 
                 <!-- MESSAGE SI AUCUNE CATÉGORIE NE CORRESPOND BIEN -->
-                <?php if ($meilleurScore < 60): ?>
+                <?php if ($meilleurScore < 60) { ?>
                     <div class="notice">
                         <p><strong>Aucun domaine ne ressort vraiment de tes réponses.</strong> Ce n'est pas grave : parcours les fiches ci-dessous pour découvrir les métiers, ou <a href="quiz.php">ajuste tes réponses</a>.</p>
                     </div>
-                <?php endif; ?>
+                <?php } ?>
 
                 <div class="categorie-grid">
-                    <?php foreach ($categories as $categorie): ?>
+                    <?php foreach ($categories as $categorie) { ?>
                         <?php
                         $cid          = $categorie->getId();
                         $nom          = htmlspecialchars($categorie->getNom());
                         $description  = htmlspecialchars($categorie->getDescription());
                         $score        = $categorie->getScore();
-                        $salaire      = $categorie->getSalaireFormate();
+                        $salaire      = htmlspecialchars($categorie->getSalaireFormate());
                         $niveauRisque = $categorie->getNiveauRisqueIa();
                         $texteRisque  = $categorie->getTexteRisqueIa();
                         ?>
@@ -100,7 +99,7 @@ $meilleurScore = empty($categories) ? 0 : $categories[0]->getScore();
 
                             <a class="categorie-link" href="fiche-categorie.php?id=<?= $cid ?>">Voir la fiche →</a>
                         </article>
-                    <?php endforeach; ?>
+                    <?php } ?>
                 </div>
             </div>
         </section>
@@ -118,3 +117,4 @@ $meilleurScore = empty($categories) ? 0 : $categories[0]->getScore();
 </body>
 
 </html>
+

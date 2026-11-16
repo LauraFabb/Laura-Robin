@@ -7,12 +7,14 @@ use PDO;
 class CategoriesManager implements CategoriesManagerInterface {
     private PDO $pdo;
 
-    public function __construct(Database $database) {
+    public function __construct() {
+        $database = new Database();
         $this->pdo = $database->getPdo();
     }
 
     public function getAll(): array {
-        $stmt = $this->pdo->query('SELECT * FROM categories ORDER BY nom');
+        $stmt = $this->pdo->prepare('SELECT * FROM categories ORDER BY nom');
+        $stmt->execute();
         $rows = $stmt->fetchAll();
 
         $categories = [];
@@ -32,20 +34,27 @@ class CategoriesManager implements CategoriesManagerInterface {
     public function getAllClassees(array $profil): array {
         $categories = $this->getAll();
 
-        foreach ($categories as $categorie) {
+        // Calcul du score de chaque catégorie
+        $scores = [];
+        foreach ($categories as $index => $categorie) {
             $score = $this->calculerScore($categorie->getId(), $profil);
             $categorie->setScore($score);
+            $scores[$index] = $score;
         }
 
-        // Aide avec l'IA (n°5)
-        usort($categories, function ($a, $b) {
-            return $b->getScore() - $a->getScore();
-        });
+        // Tri des scores du plus grand au plus petit (les index sont gardés)
+        arsort($scores);
 
-        return $categories;
+        // On remet les catégories dans l'ordre des scores
+        $categoriesClassees = [];
+        foreach ($scores as $index => $score) {
+            $categoriesClassees[] = $categories[$index];
+        }
+
+        return $categoriesClassees;
     }
 
-    // Aide avec l'IA (n°4)
+    // Aide avec l'IA (n°3)
     private function calculerScore(int $idCategorie, array $profil): int {
         $stmt = $this->pdo->prepare('SELECT id_critere, valeur FROM valeurs_criteres WHERE id_categorie = :id');
         $stmt->execute([':id' => $idCategorie]);

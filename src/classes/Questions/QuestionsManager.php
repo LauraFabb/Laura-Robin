@@ -7,12 +7,14 @@ use PDO;
 class QuestionsManager implements QuestionsManagerInterface {
     private PDO $pdo;
 
-    public function __construct(Database $database) {
+    public function __construct() {
+        $database = new Database();
         $this->pdo = $database->getPdo();
     }
 
     public function getAll(): array {
-        $stmt = $this->pdo->query('SELECT * FROM questions ORDER BY ordre');
+        $stmt = $this->pdo->prepare('SELECT * FROM questions ORDER BY ordre');
+        $stmt->execute();
         $rows = $stmt->fetchAll();
 
         $questions = [];
