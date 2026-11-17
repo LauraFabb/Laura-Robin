@@ -1,38 +1,14 @@
+<?php require_once __DIR__ . '/../functions.php'; ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FYNJ – Find Your Numeric Job</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap">
-    <link rel="stylesheet" href="./css/commun.css">
-    <link rel="stylesheet" href="./css/accueil.css">
-</head>
+<?php render('head', ['title' => 'Accueil | FYNJ', 'css' => 'accueil']); ?>
 
 <body>
 
-    <!-- HEADER / NAVIGATION -->
-    <header class="nav">
-        <div class="wrap">
-            <a class="logo" href="index.php"><i>◆</i>FYNJ</a>
-            <nav aria-label="Navigation principale">
-                <ul>
-                    <li><a href="index.php" aria-current="page">Accueil</a></li>
-                    <li><a href="#metiers">Métiers</a></li>
-                    <li><a href="quiz.php">Quiz</a></li>
-                    <li><a href="a-propos.php">À propos</a></li>
-                </ul>
-            </nav>
-            <div class="actions">
-                <a class="btn btn-white" href="connexion.php">Se connecter</a>
-                <a class="btn btn-red" href="quiz.php">Découvrir l'outil</a>
-            </div>
-        </div>
-    </header>
-
+<?php render('header', ['current' => 'index.php']); ?>
+    
     <main>
         <!-- HERO -->
         <section class="hero">
@@ -182,14 +158,7 @@
         </div>
     </main>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="wrap">
-            <a class="logo" href="index.php"><i>◆</i>FYNJ</a>
-            <div>Contact<small><a href="mailto:contact@fynj.ch">contact@fynj.ch</a></small></div>
-            <div>Projet<small>HEIG-VD, Yverdon-les-Bains</small></div>
-        </div>
-    </footer>
+<?php render('footer'); ?>
 
 </body>
 
