@@ -1,37 +1,12 @@
+<?php require_once __DIR__ . '/../functions.php'; ?>
 <!DOCTYPE html>
 <html lang="fr">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>À propos – FYNJ</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Outfit:wght@400;500;600;700&display=swap">
-    <link rel="stylesheet" href="./css/commun.css">
-    <link rel="stylesheet" href="./css/a-propos.css">
-</head>
+<?php render('head', ['title' => 'a-propos | FYNJ', 'css' => 'a-propos']); ?>
 
 <body>
 
-    <!-- HEADER / NAVIGATION -->
-    <header class="nav">
-        <div class="wrap">
-            <a class="logo" href="index.php"><i>◆</i>FYNJ</a>
-            <nav aria-label="Navigation principale">
-                <ul>
-                    <li><a href="index.php">Accueil</a></li>
-                    <li><a href="index.php#metiers">Métiers</a></li>
-                    <li><a href="quiz.php">Quiz</a></li>
-                    <li><a href="a-propos.php" aria-current="page">À propos</a></li>
-                </ul>
-            </nav>
-            <div class="actions">
-                <a class="btn btn-white" href="connexion.php">Se connecter</a>
-                <a class="btn btn-red" href="quiz.php">Commencer le quiz</a>
-            </div>
-        </div>
-    </header>
+<?php render('header', ['current' => 'a-propos.php']); ?>
 
     <main>
         <!-- HERO -->
@@ -127,17 +102,7 @@
         </div>
     </main>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="wrap">
-            <div>
-                <a class="logo" href="index.php"><i>◆</i>FYNJ</a>
-                <small>FYNJ est un projet étudiant de la HEIG-VD qui aide à explorer les métiers du numérique après le Bachelor.</small>
-            </div>
-            <div>Contact<small><a href="mailto:contact@fynj.ch">contact@fynj.ch</a></small></div>
-            <div>Projet<small>HEIG-VD, Yverdon-les-Bains</small></div>
-        </div>
-    </footer>
+<?php render('footer'); ?>
 
 </body>
 

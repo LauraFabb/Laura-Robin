@@ -36,36 +36,16 @@ $nbQuestions = count($questions);
 $nbReponses = count($reponses);
 ?>
 
+<?php require_once __DIR__ . '/../functions.php'; ?>
+
 <!DOCTYPE html>
 <html lang="fr">
+<?php render('head', ['title' => 'quiz | FYNJ', 'css' => 'quiz']); ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FYNJ – Quiz d'orientation</title>
-    <link rel="stylesheet" href="./css/variables.css">
-    <link rel="stylesheet" href="./css/font.css">
-    <link rel="stylesheet" href="./css/layout.css">
-    <link rel="stylesheet" href="./css/quiz.css">
-    <link rel="stylesheet" href="./css/responsive.css">
-</head>
 
 <body>
 
-    <!-- HEADER STICKY -->
-    <header class="site-header">
-        <h1>FYNJ – FindYourNumericJob</h1>
-        <p>Quiz d'orientation</p>
-
-        <!-- Barre de progression -->
-        <div class="progress">
-            <div class="progress__bar" id="progress-bar"
-                style="width: <?= $nbQuestions > 0 ? round($nbReponses / $nbQuestions * 100) : 0 ?>%;"></div>
-        </div>
-        <p class="progress__text">
-            <span id="progress-count"><?= $nbReponses ?></span> / <?= $nbQuestions ?> réponses
-        </p>
-    </header>
+    <?php render('header', ['current' => 'quiz.php']); ?>
 
     <div class="container">
         <!-- HERO -->
@@ -135,8 +115,7 @@ $nbReponses = count($reponses);
         </form>
     </main>
 
-    <footer><small>Projet réalisé dans le cadre du cours ProgServ2 à la HEIG-VD</small></footer>
-
+<?php render('footer'); ?>
 
 </body>
 

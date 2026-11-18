@@ -15,36 +15,16 @@ $categories    = $categoriesManager->getAllClassees($profil);
 $meilleurScore = empty($categories) ? 0 : $categories[0]->getScore();
 ?>
 
+<?php require_once __DIR__ . '/../functions.php'; ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ton catalogue – FYNJ</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap">
-    <link rel="stylesheet" href="./css/commun.css">
-    <link rel="stylesheet" href="./css/catalogue.css">
-</head>
+<?php render('head', ['title' => 'Catalogue | FYNJ', 'css' => 'catalogue']); ?>
 
 <body>
 
-    <!-- HEADER / NAVIGATION -->
-    <header class="nav">
-        <div class="wrap">
-            <a class="logo" href="index.php"><i>◆</i>FYNJ</a>
-            <nav aria-label="Navigation principale">
-                <ul>
-                    <li><a href="index.php">Accueil</a></li>
-                    <li><a href="catalogue.php" aria-current="page">Catalogue</a></li>
-                    <li><a href="quiz.php">Quiz</a></li>
-                    <li><a href="a-propos.php">À propos</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<?php render('header', ['current' => 'catalogue.php']); ?>
 
     <main>
         <!-- EN-TÊTE DU CATALOGUE -->
@@ -105,14 +85,7 @@ $meilleurScore = empty($categories) ? 0 : $categories[0]->getScore();
         </section>
     </main>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="wrap">
-            <a class="logo" href="index.php"><i>◆</i>FYNJ</a>
-            <div>Contact<small><a href="mailto:contact@fynj.ch">contact@fynj.ch</a></small></div>
-            <div>Projet<small>HEIG-VD, Yverdon-les-Bains</small></div>
-        </div>
-    </footer>
+<?php render('footer'); ?>
 
 </body>
 
